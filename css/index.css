@@ -1,0 +1,740 @@
+@import url(base.css);
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot'); /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff') format('woff'), /* chrome、firefox */
+  url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont,
+.leftsidebar>li:first-child a::before,
+.leftsidebar>li:last-child a::before,
+.search button::before,
+.nav_right a::before,
+.yinying::after {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  min-width: 1016px;
+  max-width: 100%;
+  background-color: #fff;
+  font: 14px -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  color: #212121;
+  line-height: 1.5;
+  height: 2000px;
+}
+/* 一 top */
+.top {
+  height: 180px;
+  /* background-color: #000; */
+  background: url(../img/top.jpg) no-repeat; 
+  background-size: 100% 100%;
+}
+.topnav {
+  height: 56px;
+  padding: 0 25px;
+}
+.leftsidebar {
+  float: left;
+  color: #fff;
+}
+.leftsidebar>li {
+  float: left;
+  position: relative;
+  height: 56px;
+  /* overflow: hidden; */
+}
+.leftsidebar>li>a {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+  font-weight: 700;
+  color: #fff;
+  margin-right: 12px;
+  line-height: 56px;
+}
+.leftsidebar>li:last-child>a {
+  margin-right: 0;
+}
+.leftsidebar>li:first-child a::before {
+  content: '\e6ed';
+  padding-right: 7px;
+}
+.leftsidebar>li:last-child a::before {
+  content: '\e8c6';
+  padding-right: 5px;
+}
+.leftsidebar>li:first-child a::before,
+.leftsidebar>li:last-child a::before {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1; 
+  margin-top: -5px;
+}
+/* 小三角 */
+.leftsidebar>li:nth-child(3n)>a::after,
+.leftsidebar>li:nth-child(4)>a::after,
+.leftsidebar>li:last-child>a::after {
+  content: '';
+  position: absolute;
+  left: calc((100% - 10px) * 0.5);
+  top: 100%;      
+  margin-top: -12px;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: #fff;
+  display: none;
+}
+/* 悬浮小窗 */
+.leftsidebar>li:nth-child(3n)>div,
+.leftsidebar>li:nth-child(4)>div,
+.leftsidebar>li:last-child>div {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 1px 0 1px rgba(0,0,0,.2);
+  z-index: 99;
+  /* 过渡对某些瞬时状态属性无效 */
+  display: none;
+}
+.leftsidebar>li:nth-child(3n)>div:hover,
+.leftsidebar>li:nth-child(4)>div:hover,
+.leftsidebar>li:last-child>div:hover {
+  display: block;
+}
+.leftsidebar>li:nth-child(3n)>a:hover::after,
+.leftsidebar>li:nth-child(4)>a:hover::after,
+.leftsidebar>li:last-child>a:hover::after,
+.leftsidebar>li:nth-child(3n)>a:hover~div,
+.leftsidebar>li:nth-child(4)>a:hover~div,
+.leftsidebar>li:last-child>a:hover~div {
+  display: block;
+}
+/* 游戏中心小窗 */
+#game {
+  left: calc((-100% + 10px));
+  width: 465px;
+  height: 260px;
+  padding: 13px 0 0 8px;
+  /* visibility: visible; */
+}
+#game .gameleft {
+  float: left;
+  width: 253px;
+  height: 100%;
+  background-color: #fff;
+}
+.gameleft a {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+.gameleft img {
+  width: 100%;
+  height: 130px;
+  border-radius: 4px;
+}
+.gameleft ul {
+  margin-top: 7px;
+}
+.gameleft ul li {
+  float: left;
+  width: calc(100% / 3);
+  height: 110px;
+}
+.gameleft ul li:hover {
+  background: #e5e9ef;
+}
+.gameleft ul li a {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 5px 9px 0;
+  text-align: center;
+  line-height: 20px;
+  color: #515151
+}
+.gameleft ul li a img {
+  width: 100%;
+  height: 65px;
+  border-radius: 16px;
+  margin-bottom: 3px;
+}
+.gameright {
+  float: right;
+  position: relative;
+  width: 195px;
+  height: 232px;
+  padding-top: 35px;
+  box-shadow: -6px 0px 5px -5px rgba(0, 0, 0, .3);
+}
+
+.gameright ul li a {
+  display: block;
+  line-height: calc((232px - 35px) / 7);
+  padding-left: 30px;
+  color: #515151;
+}
+.gameright ul li a:hover {
+  background-color: #e5e9ef;
+  color: #0aa4d7
+}
+
+.silk-ribbon4 {
+	position:absolute;
+	top: 0;
+	padding:2px 10px;
+	background:#00B3ED;
+	box-shadow:-1px 2px 4px rgba(0,0,0,0.5);
+}
+.silk-ribbon4:before,.silk-ribbon4:after {
+	position:absolute;
+	content:"";
+	display:block;
+}
+.silk-ribbon4:before {
+	width:7px;
+	height:100%;
+	padding:0 0 7px;
+	top:0;
+	left:-7px;
+	background:inherit;
+	border-radius:5px 0 0 5px;
+  /* z-index: 99; */
+}
+.silk-ribbon4:after {
+	width:5px;
+	height:5px;
+	background:rgba(0,0,0,0.35);
+	bottom:-5px;
+	left:-5px;
+	border-radius:5px 0 0 5px;
+}
+/* 直播小窗 */
+#live {
+  left: -50px;
+  width: 525px;
+  height: 266px;
+  padding: 18px 0 23px 20px;
+  /* visibility: visible; */
+}
+.liveleft {
+  float: left;
+  width: 251px;
+  height: 100%;
+}
+.liveleft h6,
+.liveright h6 {
+  line-height: 2;
+  font-size: 12px;
+  color: #ea759f;
+}
+.liveleft ul {
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
+  height: calc(100% - 24px);
+}
+.liveleft ul li {
+  float: left;
+  /* margin-right: 16px; */
+  width: 64px;
+  height: calc(50% - 12px);
+  margin: 6px 16px 6px 0;
+}
+.liveleft ul li a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.liveleft ul li a::before {
+  content: '';
+  display: block;
+  width: auto;
+  padding-left: 15px;
+  height: 64px;
+  border-radius: 32px;
+  margin-bottom: 4px;
+  /* 这个属性使得背景图片和背景颜色可以同时显示 */
+  background-blend-mode: multiply;
+  line-height: 64px;
+}
+.liveleft ul li:nth-child(2n) a::before {
+  background: url(../img/tou3.webp)  no-repeat;
+  /* 尽管父元素的padding-left减小了content区的宽，但图片未变化。说明背景图片大小 百分比相对于包含块的padding-box。 */
+  background-size: 100% 64px;
+}
+.liveleft ul li:nth-child(2n+1) a::before {
+  background: url(../img/tou1.webp) no-repeat;
+  background-size: 64px 64px;
+}
+.liveleft ul li a:hover::before {
+  content: 'LIVE';
+  background-color: rgba(103, 101, 99, .8);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+.liveleft ul li a:hover::after {
+  content: '';
+  position: relative;
+  display: block;
+  bottom: 62px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #ff699e;
+}
+.liveright {
+  float: right;
+  width: calc(100% - 252px);
+  height: 100%;
+}
+.liveright ul {
+  margin-top: -2px;
+}
+.liveright ul li {
+  overflow: hidden;
+}
+
+.liveright ul li:hover {
+  cursor: pointer;
+  background-color: #eaeaea;
+}
+.liveright ul li a {
+  display: block;
+  width: 208px;
+  height: 80px;
+  margin: 10px auto;
+  background: url(../img/live1.webp) no-repeat;
+  background-size: 208px 80px;
+}
+
+/* rightsidebar */
+.rightsidebar {
+  float: right;
+}
+.rightsidebar>li {
+  float: left;
+  margin-left: 12px;
+  position: relative;
+}
+.rightsidebar>li:first-child {
+  margin-left: 0;
+  /* margin-right: 25px; */
+  margin-right: calc(28px - 12px);
+}
+.rightsidebar>li>a {
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+/* not选择器排除2个要这样使用，如果用,选择2个发现不起效 */
+.rightsidebar>li:not(:first-child):not(:last-child)>a {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.rightsidebar>li:first-child,
+.rightsidebar>li:last-child {
+  line-height: 56px;
+}
+/* 行内块包含正常流内容，且overflow属性不是hidden，其baseline取决于流内容的baseline */
+.rightsidebar>li:first-child a {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  background-color: #fff;
+  border-radius: 19px;
+  line-height: 37px;
+  text-align: center;
+  color: #28c4f8;
+}
+/* 投稿按钮 */
+.rightsidebar>li:last-child a {
+  display: inline-block;
+  height: 36px;
+  border-radius: 2px;
+  background-color: #fb7299;
+  line-height: 36px;
+  text-align: center;
+}
+@media screen and (min-width:1123px) {
+  .rightsidebar>li:last-child a {
+    width: 100px;
+  }
+  .search_wrap {
+    /* margin: 0 497px 0 423px; */
+    margin: 0 478px 0 423px;
+  }
+}
+@media screen and (max-width:1122px) {
+  .rightsidebar>li:last-child a {
+    width: 60px;
+  }
+  .search_wrap {
+    margin: 0 436px 0 423px;
+  }
+}
+
+/* 搜索 */
+.search_wrap {
+  /* 注意层叠性 */
+  /* margin: 0 478px 0 423px; */
+  padding: 10px 22px 0;
+}
+.search {
+  margin: 0 auto;
+  max-width: 502px;
+  min-width: 75px;
+}
+.search input {
+  float: left;
+  width: calc(100% + -50px);
+  height: 37px;
+  padding-left: 15px;
+  background-color: #fff;
+  color: #817e7e;
+  font-weight: 700;
+  border-radius: 2px 0 0 2px;
+}
+.search button {
+  /* 左兄浮动了，所以不必再浮动 */
+  /* float: right; */
+  width: 50px;
+  height: 37px;
+  background-color: #e7e7e7;
+  border-radius: 2px;
+}
+.search button::before {
+  content: '\e637';
+}
+.search button:hover::before {
+  color: #0fa6d7
+}
+
+
+
+/* 二 nav导航 */
+@media screen and (min-width: 1870px) {
+  .w {
+    width: 1632px;
+  }
+}
+@media screen and (max-width: 1870px) {
+  .w {
+    width: 1416px;
+  }
+}
+@media screen and (max-width: 1654px) {
+  .w {
+    width: 1200px;
+  }
+}
+@media screen and (max-width: 1438px) {
+  .w {
+    width: 1000px;
+  }
+}
+.w {
+  /* max-width: 85%;
+  min-width: 1000px; */
+  margin: 0 auto;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+}
+.nav_middle {
+  flex: 6.26;
+}
+.nav_left {
+  flex: 1.64;
+}
+.nav_right {
+  flex: 2.3;
+}
+.nav_left,
+.nav_middle,
+.nav_right {
+  display: flex;
+}
+.nav_left {
+  /* margin-right: 68px; */
+  justify-content: space-around;
+}
+/* 左侧导航4个a */
+.nav_left a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #212121;
+}
+.nav_left a:hover {
+  color: #00a1d6;
+}
+.nav_left a .round {
+  width: 36px;
+  height: 36px;
+  margin: 0 8px 4px;
+  border-radius: 18px;
+  line-height: 36px;
+  text-align: center;
+}
+.nav_left a:nth-child(odd) .round {
+  background-color: #ff5c7c;
+}
+.nav_left a:nth-child(even) .round {
+  background-color: #fcba2a;
+}
+/* 导航左侧字体图标 */
+.nav_left a .round .iconfont {
+  font-size: 20px;
+  color: #fff
+}
+/* 分割线 */
+.tab_line {
+  margin: 0 19px 0 0;
+  height: 48px;
+  border-left: 1px solid #e7e7e7;
+}
+/* 导航中部 */
+.nav_middle ul {
+  width: 100%;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.nav_middle ul li {
+  height: 34px;
+  display: flex;
+} 
+.nav_middle ul li a {
+  display: flex;
+  align-items: center;
+  color: #212121
+}
+.nav_middle ul li a:hover {
+  color: #00a1d6
+}
+.nav_middle ul li:last-child a:hover::after {
+  border-right-color: #00a1d6;
+  border-bottom-color: #00a1d6;
+}
+.nav_middle ul li a i {
+  display: inline-block;
+  width: 34px;
+  margin-left: 3px;
+  border-radius: 2px;
+  background: #73c9e5;
+  text-align: center;
+  font-style: normal;
+  /* 最小12px */
+  font-size: 12px;
+  line-height: 1.2;
+  /* 整个元素缩放 */
+  transform: translateX(-15%) translateY(10%) scale(0.65);
+  color: #fff;
+}
+.nav_middle ul li:last-child a::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-right: 1px solid #515151;
+  border-bottom: 1px solid #515151;
+  /* CSS33D旋转 左手法则 */
+  transform: rotateZ(45deg);
+  margin-left: 5px;
+  margin-top: -3px;
+}
+/* 右侧导航 */
+.nav_right {
+  height: 64px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 7px;
+}
+.nav_right a {
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+.nav_right a:hover {
+  color: #00a1d6;
+}
+.nav_right a::before {
+  font-size: 20px;
+  padding-right: 5px;
+}
+.nav_right a:first-child::before {
+  content: '\e630';
+  color: #73c9e5
+}
+.nav_right a:nth-child(2)::before {
+  content: '\e695';
+  color: #73c9e5
+}
+.nav_right a:nth-child(3)::before {
+  content: '\e614';
+  color: #f39800
+}
+.nav_right a:nth-child(4)::before {
+  content: '\e60a';
+  color: #ffe77d
+}
+.nav_right a:nth-child(5)::before {
+  content: '\e607';
+  color: #ffd043
+}
+.nav_right a:nth-child(6)::before {
+  content: '\e639';
+  color: #3da9d3
+}
+
+
+/* 三 轮播 */
+.space-between {
+  height: 244px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+/* 轮播图 */
+.space-between .lunbo {
+  float: left;
+  height: 244px;
+}
+.space-between .lunbo a {
+  display: block;
+  height: 100%;
+}
+.space-between .lunbo a img {
+  width: 100%;
+  height: 100%;
+}
+/* 视频 */
+.space-between ul {
+  float: right;
+}
+.space-between ul li {
+  float: left;
+  height: 116px;
+  padding-left: 10px;
+}
+/* 左边轮播图分2种大小 */
+@media screen and (min-width: 1439px) {
+  .space-between .lunbo  {
+    width: 550px;
+  }
+  .space-between ul {
+    width: calc(100% - 550px);
+  }  
+}
+@media screen and (max-width:1438px) {
+  .space-between .lunbo {
+    width: 460px;
+  }
+  .space-between ul {
+    width: calc(100% - 460px);
+  }
+}
+/* 一行5个/4个/3个 */
+@media screen and (min-width:1870px) {
+  .space-between ul li {
+    width: calc(100% / 5);
+  }
+  .space-between ul li:nth-child(-n+5) {
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width:1870px) {
+  .space-between ul li {
+    width: calc(100% / 4);
+  }
+  .space-between ul li:nth-child(-n+4) {
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width:1654px) {
+  .space-between ul li {
+    width: calc(100% / 3);
+  }
+  .space-between ul li:nth-child(-n+3) {
+    margin-bottom: 12px;
+  }
+}
+
+.space-between ul li a {
+  position: relative;
+  display: block;
+  height: 100%;
+  background-color: #515151;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.space-between ul li a img {
+  width: 100%;
+  height: 100%;
+}
+/* 视频遮罩层 鼠标未移入状态 */
+.space-between ul li a .yinying {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 90px;
+  bottom: 0;
+  padding: 0 10px;
+  /* 三层渐变 */
+  background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.1),rgba(0,0,0,.6));
+  color: #fff;
+  transition: all 0.15s linear 0s;
+}
+/* 播放小图标 不显示 */
+.yinying::after {
+  content: '\e608';
+  position: absolute;
+  right: 10px;
+  bottom: 4px;
+  font-size: 22px;
+  visibility: hidden;
+}
+/* 文本溢出省略号 */
+.yinying p:first-child {
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 鼠标移入状态 */
+.yinying p:not(:first-child) {
+  margin-top: 2px;
+  font-size: 12px;
+}
+.space-between ul li a:hover .yinying {
+  top: 0;
+  bottom: 0;
+  padding-top: 26px;
+  background: rgba(0, 0, 0, .75);
+}
+/* 把transition属性分别写在“普通状态”和“悬浮状态”内，然后对比两种方式，就可以很直观地知道两者的
+不同了：移入时效果两者没有区别，但是如果把transition属性写在普通状态内的话，移出时会有过渡效果；
+如果把transition属性写在悬浮状态内的话，移出时没有过渡效果。 */
+.space-between ul li a:hover .yinying::after  {
+  visibility: visible;
+  transition: visibility 0.2s ease 0.3s;
+}
+.space-between ul li a:hover .yinying p:first-child {
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: none;
+}
