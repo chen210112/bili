@@ -7,6 +7,7 @@
   url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
+/* 这种写法与单独分开写是一样的，对权重无影响 */
 .iconfont,
 .leftsidebar>li:first-child a::before,
 .leftsidebar>li:last-child a::before,
@@ -338,7 +339,7 @@ body {
   line-height: 56px;
   color: #fff;
 }
-/* not选择器排除2个要这样使用，如果用,选择2个发现不起效 */
+/* not选择器排除2个要这样使用，如果用,选择2个发现不起效 类似于交集选择*/
 .rightsidebar>li:not(:first-child):not(:last-child)>a {
   text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
 }
